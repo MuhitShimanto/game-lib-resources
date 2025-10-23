@@ -25,7 +25,7 @@ const Newsletter = () => {
               </p>
             </div>
             <div className="w-full flex justify-center items-center">
-              <form className="mt-6 lg:mt-0 w-3/4 lg:w-1/2 flex-col lg:flex-row">
+              <form className="mt-6 lg:mt-0 w-3/4 lg:w-1/2 flex flex-col lg:flex-row">
                 <input
                   type="email"
                   className="input input-bordered w-full outline-none hover:border-primary focus:border-primary focus:shadow-sm focus:shadow-primary transition ease-in-out duration-200 cursor-target text-lg py-2 px-4"

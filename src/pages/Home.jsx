@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <main className="space-y-12">
         <Banner />
-        <PopularGames games={games} className="max-w-[1600px] mx-auto" />
+        <PopularGames games={games} className="max-w-[1600px] mx-auto px-6" />
         <Newsletter/>
       </main>
     </>
