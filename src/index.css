@@ -77,3 +77,9 @@
   --depth: 1;
   --noise: 0;
 };
+
+
+/* Styling */
+.active {
+  @apply font-bold
+}

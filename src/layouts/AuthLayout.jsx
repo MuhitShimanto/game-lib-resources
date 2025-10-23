@@ -8,7 +8,7 @@ const AuthLayout = () => {
       
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <div className="flex-1 flex">
+        <div className="flex-1 flex w-full max-w-[1600px] mx-auto relative">
           <Outlet />
         </div>
         <Footer />

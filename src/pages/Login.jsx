@@ -7,16 +7,16 @@ import FadeContent from "../animations/FadeContent";
 const Login = () => {
   return (
     <>
-      <div className="relative grid grid-cols-2 flex-1">
-        <div className="w-full h-full">
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 flex-1">
+        <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[50vw] ml-[calc((100%-100vw)/2)]">
           <img
             src={asideImg}
             className="h-full w-full object-cover object-top-right"
           />
         </div>
-
-        <div className="w-full h-full flex justify-center items-center">
-          <div className="min-w-[400px] flex flex-col gap-2 bg-base-100 p-10 rounded-lg shadow-xl">
+        <div className="hidden lg:block"></div>
+        <div className="h-full flex justify-center items-center">
+          <div className="min-w-[300px] lg:min-w-[400px] flex flex-col gap-2 bg-base-100 p-10 rounded-lg shadow-xl">
             {/* <h1 className="font-semibold text-primary text-5xl poppins">
               Log in
             </h1> */}
@@ -51,7 +51,7 @@ const Login = () => {
               initialOpacity={0}
             >
               <form>
-                <fieldset className="flex flex-col gap-4">
+                <fieldset className="flex flex-col gap-3">
                   <div className="flex flex-col gap-1">
                     <label className="text-neutral">Email</label>
                     <input

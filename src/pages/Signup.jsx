@@ -8,16 +8,17 @@ import { ImCross } from "react-icons/im";
 const Signup = () => {
   return (
     <>
-      <div className="relative grid grid-cols-2 flex-1">
-        <div className="w-full h-full">
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 flex-1">
+        <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[50vw] ml-[calc((100%-100vw)/2)]">
           <img
             src={asideImg}
             className="h-full w-full object-cover object-top-right"
           />
         </div>
+        <div className="hidden lg:block"></div>
 
         <div className="w-full h-full flex justify-center items-center">
-          <div className="min-w-[400px] flex flex-col gap-2 bg-base-100 p-10 rounded-lg shadow-xl">
+          <div className="min-w-[300px] lg:min-w-[400px]flex flex-col gap-2 bg-base-100 p-10 rounded-lg shadow-xl">
             <SplitText
               text="Register"
               className="font-semibold text-primary text-[42px] poppins"
@@ -37,7 +38,7 @@ const Signup = () => {
             {/* Main Form */}
             <FadeContent blur={true} duration={300} easing="ease-out" initialOpacity={0}>
             <form>
-              <fieldset className="flex flex-col gap-4">
+              <fieldset className="flex flex-col gap-3">
                 {/* Name */}
                 <div className="flex flex-col gap-1">
                   <label className="text-neutral">Name</label>
