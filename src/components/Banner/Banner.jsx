@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import { Link } from "react-router";
 
 // Optional: you can move these custom styles to a CSS file if you want
 const customStyles = `
@@ -118,9 +119,9 @@ const Banner = () => {
                 <p className="text-lg md:text-xl text-base-content mb-8">
                   {slide.description}
                 </p>
-                <button className="btn btn-primary btn-lg font-semibold text-lg cursor-target">
+                <Link to={`/all-games/${slide.title}`} className="btn btn-primary btn-lg font-semibold text-lg cursor-target">
                   Discover More
-                </button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>

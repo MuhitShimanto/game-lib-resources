@@ -81,5 +81,5 @@
 
 /* Styling */
 .active {
-  @apply font-bold
+  @apply font-bold underline underline-offset-6 text-primary
 }
