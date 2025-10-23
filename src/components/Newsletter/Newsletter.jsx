@@ -1,9 +1,9 @@
 import Galaxy from "../../animations/Galaxy";
 
-const Newsletter = () => {
+const Newsletter = ({className}) => {
   return (
     <>
-      <div className="relative bg-black">
+      <div className={`relative bg-black ${className}`}>
         <div
           style={{ position: "relative", height: "500px", overflow: "hidden" }}
         >
@@ -15,7 +15,7 @@ const Newsletter = () => {
             saturation={0.15}
             hueShift={240}
           />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row justify-between items-center">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row justify-between items-center px-6">
             <div className="w-full flex flex-col items-center lg:items-baseline justify-center gap-12">
               <h1 className="font-bold text-5xl montserrat">Stay up to date</h1>
               <p className="text-secondary-content/65 poppins text-center lg:text-left">
@@ -24,8 +24,8 @@ const Newsletter = () => {
                 spam, just games.
               </p>
             </div>
-            <div className="w-full flex justify-center items-center">
-              <form className="mt-6 lg:mt-0 w-3/4 lg:w-1/2 flex flex-col lg:flex-row">
+            <div className="w-full flex justify-end items-center">
+              <form className="mt-6 lg:mt-0 w-3/4 flex flex-col lg:flex-row">
                 <input
                   type="email"
                   className="input input-bordered w-full outline-none hover:border-primary focus:border-primary focus:shadow-sm focus:shadow-primary transition ease-in-out duration-200 cursor-target text-lg py-2 px-4"

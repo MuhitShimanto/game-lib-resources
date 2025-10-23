@@ -2,9 +2,12 @@ import { createBrowserRouter } from "react-router";
 import AuthLayout from "../layouts/AuthLayout";
 import Home from "../pages/Home";
 import MainLayout from "../layouts/MainLayout";
-import PageNotFound from "../pages/PageNotFound";
+import PageNotFound from "../pages/errorPages/PageNotFound";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import AllGames from "../pages/AllGames";
+import GameDetails from "../pages/GameDetails";
+import GameNotFound from "../pages/errorPages/GameNotFound";
 
 const router = createBrowserRouter([
   {
@@ -17,9 +20,27 @@ const router = createBrowserRouter([
         loader: async () => {
           const res = await fetch("/json/popularGames.json");
           return res.json();
-        },
+        }
       },
-    ],
+      {
+        path: "all-games",
+        element: <AllGames/>,
+        loader: async () => {
+          const res = await fetch("/json/games.json");
+          return res.json();
+        },
+        children: [
+            {
+                path: ":gameName",
+                element: <GameDetails/>
+            },
+            {
+                path: "*",
+                element: <GameNotFound/>
+            }
+        ]
+      }
+    ]
   },
   {
     path: "auth",
