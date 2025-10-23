@@ -1,15 +1,15 @@
 import { useLoaderData } from "react-router";
 import Banner from "../components/Banner/Banner";
-import PopularGames from "../components/PopularGames/PopularGames";
+import GameCardsContainer from "../components/GameCardsContainer/GameCardsContainer";
 import Newsletter from "../components/Newsletter/Newsletter";
 
 const Home = () => {
-  const games = useLoaderData();
+  const popularGames = useLoaderData();
   return (
     <>
       <main className="space-y-12">
         <Banner />
-        <PopularGames games={games} className="max-w-[1600px] mx-auto px-6" />
+        <GameCardsContainer title={"Popular Games"} games={popularGames} seeMore={true} className="max-w-[1600px] mx-auto px-6" />
         <Newsletter className=""/>
       </main>
     </>

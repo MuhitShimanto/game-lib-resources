@@ -20,27 +20,34 @@ const router = createBrowserRouter([
         loader: async () => {
           const res = await fetch("/json/popularGames.json");
           return res.json();
-        }
+        },
       },
       {
         path: "all-games",
-        element: <AllGames/>,
-        loader: async () => {
-          const res = await fetch("/json/games.json");
-          return res.json();
-        },
         children: [
-            {
-                path: ":gameName",
-                element: <GameDetails/>
+          {
+            index: true,
+            element: <AllGames />,
+            loader: async () => {
+              const res = await fetch("/json/games.json");
+              return res.json();
             },
-            {
-                path: "*",
-                element: <GameNotFound/>
-            }
-        ]
-      }
-    ]
+          },
+          {
+            path: ":gameTitle",
+            element: <GameDetails />,
+            loader: async () => {
+              const res = await fetch("/json/games.json");
+              return res.json();
+            },
+          },
+          {
+            path: "*",
+            element: <GameNotFound />,
+          },
+        ],
+      },
+    ],
   },
   {
     path: "auth",

@@ -12,7 +12,7 @@ const GameCard = ({ game }) => {
     ratings,
   } = game;
   return (
-    <Link to={`all-games/${title}`} className="hover:scale-103 transition ease-in-out duration-150 cursor-pointer">
+    <Link to={`/all-games/${title}`} className="hover:scale-103 transition ease-in-out duration-150 cursor-pointer">
       <SpotlightCard className="p-0" spotlightColor="rgba(255, 255, 255, 0.25)">
         <div className="flex flex-col">
           <div id="thumbnail" className="relative h-[400px] overflow-hidden">

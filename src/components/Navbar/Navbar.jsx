@@ -3,7 +3,7 @@ import Logo from "/logo2.png";
 
 const navMenu = [
   <li key={1}><NavLink to="/">Home</NavLink></li>,
-  <li key={2}><NavLink to="/explore">Explore</NavLink></li>,
+  <li key={2}><NavLink to="/all-games">Explore</NavLink></li>,
   <li key={3}><NavLink to="/upcoming">Upcoming</NavLink></li>,
   <li key={4}><NavLink to="/about-us">About Us</NavLink></li>,
 ];
