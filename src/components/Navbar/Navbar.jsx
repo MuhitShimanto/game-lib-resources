@@ -2,10 +2,10 @@ import { Link, NavLink } from "react-router";
 import Logo from "/logo2.png";
 
 const navMenu = [
-  <li><NavLink to="/">Home</NavLink></li>,
-  <li><NavLink to="/explore">Explore</NavLink></li>,
-  <li><NavLink to="/upcoming">Upcoming</NavLink></li>,
-  <li><NavLink to="/about-us">About Us</NavLink></li>,
+  <li key={1}><NavLink to="/">Home</NavLink></li>,
+  <li key={2}><NavLink to="/explore">Explore</NavLink></li>,
+  <li key={3}><NavLink to="/upcoming">Upcoming</NavLink></li>,
+  <li key={4}><NavLink to="/about-us">About Us</NavLink></li>,
 ];
 
 const Navbar = () => {

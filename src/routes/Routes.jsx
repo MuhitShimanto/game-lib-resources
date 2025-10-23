@@ -7,34 +7,38 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <MainLayout/>,
-        children: [
-            {
-                index: true,
-                element: <Home/>
-            }
-        ]
-    },
-    {
-        path: "auth",
-        element: <AuthLayout/>,
-        children: [
-            {
-                index: true,
-                element: <Login/>
-            },
-            {
-                path: "sign-up",
-                element: <Signup/>
-            }
-        ]
-    },
-    {
-        path: "*",
-        element: <PageNotFound/>
-    }
-])
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        loader: async () => {
+          const res = await fetch("/json/popularGames.json");
+          return res.json();
+        },
+      },
+    ],
+  },
+  {
+    path: "auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        index: true,
+        element: <Login />,
+      },
+      {
+        path: "sign-up",
+        element: <Signup />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <PageNotFound />,
+  },
+]);
 
 export default router;

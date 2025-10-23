@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Hades",
+    "description": "Battle your way out of the Underworld in this fast-paced action roguelike, blending intense combat with a rich, evolving story based on Greek mythology.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203109/Hades2_uujjcw.png"
+  },
+  {
+    "title": "Stardew Valley",
+    "description": "Build your dream farm, make friends, fall in love, and restore your grandfather’s legacy in this relaxing and heartfelt farming simulator.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203110/Stardew_Valley_xntkou.jpg"
+  },
+  {
+    "title": "Hollow Knight",
+    "description": "Explore the vast, ruined kingdom of Hallownest in this beautifully hand-drawn Metroidvania adventure filled with secrets and challenging enemies.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203111/Hollow_Knight2_nxmjhc.jpg"
+  },
+  {
+    "title": "Undertale",
+    "description": "An RPG where no one has to die. Your choices truly matter in this quirky, emotional, and subversive adventure filled with unforgettable characters.",
+    "imgUrl": "https://i.ytimg.com/vi/ArWKZnWN-lk/maxresdefault.jpg"
+  },
+  {
+    "title": "Dead Cells",
+    "description": "Fight, die, learn, and repeat in this roguelike Metroidvania featuring fluid combat, tight controls, and ever-changing castle layouts.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203109/Dead_Cells2_zugi0b.jpg"
+  },
+  {
+    "title": "Cuphead",
+    "description": "A run-and-gun platformer inspired by 1930s cartoons, featuring hand-drawn visuals, jazzy music, and some of the toughest boss fights in gaming.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203109/Cuphead_prrcjr.jpg"
+  },
+  {
+    "title": "Celeste",
+    "description": "Climb a mysterious mountain in this precision platformer about perseverance, mental health, and self-discovery, with challenging yet rewarding gameplay.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203112/Celeste_cbkn5z.png"
+  },
+  {
+    "title": "Into the Breach",
+    "description": "Command a squad of mechs to defend humanity from alien threats in this tactical, turn-based strategy game where every move counts.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203110/Into_the_Breach_grzpeq.jpg"
+  },
+  {
+    "title": "Tunic",
+    "description": "Embark on a mysterious adventure as a small fox in a vast world filled with ancient secrets, clever puzzles, and cryptic symbols.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203111/Tunic_koo1au.jpg"
+  },
+  {
+    "title": "A Hat in Time",
+    "description": "A cute-as-heck 3D platformer where you play as a tiny space-traveling girl collecting Time Pieces across vibrant, whimsical worlds.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203108/A_Hat_in_Time_m5qv46.jpg"
+  },
+  {
+    "title": "Terraria",
+    "description": "Dig, build, fight, and explore a vast 2D sandbox world full of adventure, crafting, monsters, and endless creativity.",
+    "imgUrl": "https://res.cloudinary.com/dypdup2xw/image/upload/v1761203111/Terraria_ynlise.png"
+  }
+]

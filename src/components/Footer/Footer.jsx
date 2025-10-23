@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router";
 
 const footerNavMenu1 = [
-  <h6 className="footer-title">Services</h6>,
-          <Link to="#" className="link link-hover">Branding</Link>,
-          <Link to="#" className="link link-hover">Design</Link>
+  <h6 key={1} className="footer-title">Services</h6>,
+  <Link key={2} to="#" className="link link-hover">Branding</Link>,
+  <Link key={3} to="#" className="link link-hover">Design</Link>
 ];
 const footerNavMenu2 = [
-  <h6 className="footer-title">Company</h6>,
-          <Link to="#" className="link link-hover">About us</Link>,
-          <Link to="#" className="link link-hover">Contact</Link>
+  <h6 key={4} className="footer-title">Company</h6>,
+  <Link key={5}  to="#" className="link link-hover">About us</Link>,
+  <Link key={6}  to="#" className="link link-hover">Contact</Link>
 ];
 
 const Footer = () => {

@@ -1,5 +1,4 @@
 import { FaGoogle } from "react-icons/fa";
-import asideImg from "/login-aside.jpg";
 import { Link } from "react-router";
 import SplitText from "../animations/SplitText";
 import FadeContent from "../animations/FadeContent";
@@ -11,14 +10,14 @@ const Signup = () => {
       <div className="relative grid grid-cols-1 lg:grid-cols-2 flex-1">
         <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[50vw] ml-[calc((100%-100vw)/2)]">
           <img
-            src={asideImg}
-            className="h-full w-full object-cover object-top-right"
+            src="https://res.cloudinary.com/dypdup2xw/image/upload/v1761203111/Tunic_koo1au.jpg"
+            className="h-full w-full object-cover object-top"
           />
         </div>
         <div className="hidden lg:block"></div>
 
         <div className="w-full h-full flex justify-center items-center">
-          <div className="min-w-[300px] lg:min-w-[400px]flex flex-col gap-2 bg-base-100 p-10 rounded-lg shadow-xl">
+          <div className="min-w-[300px] lg:min-w-[400px]flex flex-col gap-2 p-10 rounded-lg shadow-xl">
             <SplitText
               text="Register"
               className="font-semibold text-primary text-[42px] poppins"
