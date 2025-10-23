@@ -1,0 +1,79 @@
+/* Font Family */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Tailwind, Daisy-UI */
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: false;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.manrope {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.poppins {
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
+/* Themes: Dark */
+@plugin "daisyui/theme" {
+  name: "gamehub-dark";
+  default: true; /* set as default */
+  color-scheme: dark; /* color of browser-provided UI */
+
+  /* Accent Colors (from your inspiration) */
+  --color-primary: oklch(76.2% 0.17 76.5);   /* #FFAA00 */
+  --color-primary-content: oklch(12.3% 0 0);  /* #0D0D0D (Dark text on orange) */
+  --color-secondary: oklch(55.2% 0.24 295.6); /* #8A2BE2 */
+  --color-secondary-content: oklch(96.9% 0 0); /* #F5F5F5 */
+  --color-accent: oklch(58.9% 0.19 262.5);    /* #007BFF */
+  --color-accent-content: oklch(96.9% 0 0);  /* #F5F5F5 */
+
+  /* Base Colors (Dark Mode from your inspiration) */
+  --color-base-100: oklch(22.8% 0 0);     /* #1C1C1C (Container background) */
+  --color-base-200: oklch(12.3% 0 0);     /* #0D0D0D (Page background) */
+  --color-base-300: oklch(28.4% 0 0);     /* #2A2A2A (Borders) */
+  --color-base-content: oklch(96.9% 0 0);  /* #F5F5F5 (Light text) */
+
+  /* Neutral Colors */
+  --color-neutral: oklch(69.8% 0 0);        /* #A0A0A0 (Secondary text) */
+  --color-neutral-content: oklch(96.9% 0 0); /* #F5F5F5 (Text on neutral) */
+
+  /* Status Colors */
+  --color-info: oklch(58.9% 0.19 262.5);
+  --color-info-content: oklch(96.9% 0 0);
+  --color-success: oklch(73.5% 0.21 156.3);
+  --color-success-content: oklch(96.9% 0 0);
+  --color-warning: oklch(76.2% 0.17 76.5);
+  --color-warning-content: oklch(96.9% 0 0);
+  --color-error: oklch(64.2% 0.22 29.1);
+  --color-error-content: oklch(96.9% 0 0);
+  
+  /* border radius */
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  /* base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  /* border size */
+  --border: 1px;
+  /* effects */
+  --depth: 1;
+  --noise: 0;
+};
