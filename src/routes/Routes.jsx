@@ -9,6 +9,7 @@ import AllGames from "../pages/AllGames";
 import GameDetails from "../pages/GameDetails";
 import GameNotFound from "../pages/errorPages/GameNotFound";
 import ForgotPass from "../pages/ForgotPass";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
           },
           {
             path: ":gameTitle",
-            element: <GameDetails />,
+            element: <PrivateRoute><GameDetails /></PrivateRoute>,
             loader: async () => {
               const res = await fetch("/json/games.json");
               return res.json();

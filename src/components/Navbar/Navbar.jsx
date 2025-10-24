@@ -72,7 +72,7 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{navMenu}</ul>
           </div>
           {user ? (
-            <div className="dropdown dropdown-center">
+            <div className="dropdown dropdown-center z-999">
               <div tabIndex={0} role="button" className="m-1 h-[50px] w-[50px]">
                 <img
                   src={
