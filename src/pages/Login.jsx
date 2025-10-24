@@ -30,7 +30,9 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         toast.success("Email Sign in Successful");
-        navigate(cameFrom);
+        setTimeout(()=>{
+          navigate(cameFrom);
+        },100)
       })
       .catch((error) => {
         toast.error(firebaseErrorHandler(error));
@@ -43,7 +45,9 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         toast.success("Google Sign in Successful");
-        navigate(cameFrom);
+        setTimeout(()=>{
+          navigate(cameFrom);
+        },100)
       })
       .catch((error) => {
         toast.error(firebaseErrorHandler(error));
