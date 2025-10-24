@@ -86,9 +86,9 @@ const Navbar = () => {
                 tabIndex="-1"
                 className="dropdown-content menu bg-primary text-primary-content rounded-box z-1 min-w-32 p-2 shadow-sm"
               >
-                <li className="py-2 px-4 mx-auto font-medium cursor-pointer hover:bg-white/30">
+                <Link to="/my-profile" className="py-2 px-4 mx-auto font-medium cursor-pointer hover:bg-white/30">
                   My Profile
-                </li>
+                </Link>
                 <li
                   onClick={handleSignoutFunc}
                   className="py-2 px-4 mx-auto font-medium cursor-pointer hover:bg-white/30"
@@ -114,16 +114,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// (
-//             <div className="h-[50px] w-[50px] overflow-hidden">
-//               <img
-//                 src={
-//                   user.photoURL ||
-//                   "https://cdn-icons-png.freepik.com/256/13127/13127040.png?semt=ais_white_label"
-//                 }
-//                 className="h-full w-full object-cover rounded-full border-2 border-primary cursor-pointer"
-//                 onClick={handleSignoutFunc}
-//               />
-//             </div>
-//           )

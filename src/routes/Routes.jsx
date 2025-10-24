@@ -38,21 +38,25 @@ const router = createBrowserRouter([
           },
           {
             path: ":gameTitle",
-            element: <PrivateRoute><GameDetails /></PrivateRoute>,
+            element: (
+              <PrivateRoute>
+                <GameDetails />
+              </PrivateRoute>
+            ),
             loader: async () => {
               const res = await fetch("/json/games.json");
               return res.json();
             },
           },
           {
-            path: "my-profile",
-            element: <MyProfile/>
-          },
-          {
             path: "*",
             element: <GameNotFound />,
           },
         ],
+      },
+      {
+        path: "my-profile",
+        element: <MyProfile />,
       },
     ],
   },
