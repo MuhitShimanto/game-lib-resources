@@ -17,14 +17,14 @@ const Newsletter = ({className}) => {
           />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row justify-between items-center px-6">
             <div className="w-full flex flex-col items-center lg:items-baseline justify-center gap-12">
-              <h1 className="font-bold text-5xl montserrat">Stay up to date</h1>
+              <h1 className="font-bold text-5xl montserrat text-center">Stay up to date</h1>
               <p className="text-secondary-content/65 poppins text-center lg:text-left">
                 Get the latest on indie games, free game keys, developer
                 spotlights, and exclusive deals delivered straight to you. No
                 spam, just games.
               </p>
             </div>
-            <div className="w-full flex justify-end items-center">
+            <div className="w-full flex justify-center lg:justify-end items-center">
               <form className="mt-6 lg:mt-0 w-3/4 flex flex-col lg:flex-row">
                 <input
                   type="email"

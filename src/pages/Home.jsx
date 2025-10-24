@@ -6,14 +6,23 @@ import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const popularGames = useLoaderData();
+  
   return (
-    <><Helmet>
+    <>
+      <Helmet>
         <title>Home</title>
       </Helmet>
-      <main className="space-y-12">
+      <main className="space-y-9">
         <Banner />
-        <GameCardsContainer title={"Popular Games"} games={popularGames} seeMore={true} className="max-w-[1600px] mx-auto px-6" />
-        <Newsletter className=""/>
+        <div className="max-w-[1600px] mx-auto px-6">
+          
+          <GameCardsContainer
+            title="Popular Games"
+            games={popularGames}
+            seeMore={true}
+          />
+        </div>
+        <Newsletter />
       </main>
     </>
   );

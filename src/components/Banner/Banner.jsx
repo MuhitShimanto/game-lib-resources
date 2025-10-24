@@ -1,19 +1,15 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { Link } from "react-router";
-
-// Optional: you can move these custom styles to a CSS file if you want
 const customStyles = `
   .swiper-button-next,
   .swiper-button-prev {
-    color: #FFAA00; /* Your theme's primary color */
+    color: #FFAA00;
     transform: scale(0.8);
     transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
     border-radius: 9999px;
@@ -39,7 +35,7 @@ const customStyles = `
     margin: 0 5px !important;
   }
   .swiper-pagination-bullet-active {
-    background-color: #FFAA00; /* Your theme's primary color */
+    background-color: #FFAA00;
     transform: scale(1.2);
     opacity: 1;
     width: 25px;
@@ -51,15 +47,12 @@ const Banner = () => {
   const [slideData, setSlideData] = useState([]);
 
   useEffect(() => {
-    // Inject custom styles (only once)
     if (!document.getElementById("swiper-custom-styles")) {
       const style = document.createElement("style");
       style.id = "swiper-custom-styles";
       style.innerHTML = customStyles;
       document.head.appendChild(style);
     }
-
-    // Fetch banner data
     fetch("/json/bannerFeatured.json")
       .then((response) => {
         if (!response.ok) throw new Error("Failed to fetch banner data");
@@ -69,7 +62,6 @@ const Banner = () => {
       .catch((error) => console.error("Error fetching banner data:", error));
   }, []);
 
-  // Loading skeleton
   if (slideData.length === 0) {
     return (
       <div className="relative h-[30vh] md:h-[40vh] lg:h-[50vh] w-full flex justify-center items-center bg-base-200">
@@ -79,7 +71,7 @@ const Banner = () => {
   }
 
   return (
-    <div className="relative h-[30vh] md:h-[40vh] lg:h-[50vh] w-full">
+    <div className="relative h-[50vh] w-full">
       <Swiper
         modules={[Navigation, Pagination, Autoplay, EffectFade]}
         slidesPerView={1}

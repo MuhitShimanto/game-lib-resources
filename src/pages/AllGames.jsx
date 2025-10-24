@@ -8,7 +8,7 @@ const AllGames = () => {
     <><Helmet>
         <title>All Games</title>
       </Helmet>
-      <main className="mt-12 space-y-12">
+      <main className="my-12 space-y-12">
         <GameCardsContainer title={"All Games"} games={games} className="max-w-[1600px] mx-auto px-6" />
       </main>
     </>
