@@ -1,17 +1,18 @@
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import SplitText from "../animations/SplitText";
 import FadeContent from "../animations/FadeContent";
 import { useContext, useState } from "react";
-import { GoogleAuthProvider } from "firebase/auth";
 import { toast } from "react-toastify";
 import firebaseErrorHandler from "../utilities/firebaseErrorHandler";
 import AuthContext from "../contexts/AuthContext";
 
 const Login = () => {
-  const { setUser, emailSignIn, googleSignIn } =
-    useContext(AuthContext);
+  const { user, setUser, emailSignIn, googleSignIn } = useContext(AuthContext);
   const [passShow, setPassShow] = useState(false);
+  const navigate = useNavigate();
+  const curLocation = useLocation();
+  const cameFrom = curLocation.state || "/";
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -21,9 +22,9 @@ const Login = () => {
     emailSignIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        toast.success("Email Sign in Successful");
         setUser(user);
+        toast.success("Email Sign in Successful");
+        navigate(cameFrom);
       })
       .catch((error) => {
         toast.error(firebaseErrorHandler(error));
@@ -34,16 +35,17 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        toast.success("Google Sign in Successful");
         setUser(user);
+        toast.success("Google Sign in Successful");
+        navigate(cameFrom);
       })
       .catch((error) => {
         toast.error(firebaseErrorHandler(error));
       });
   };
-  
-
+  if(user) {
+    return <Navigate to="/"/>
+  }
   return (
     <>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 flex-1">

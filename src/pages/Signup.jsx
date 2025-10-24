@@ -1,5 +1,5 @@
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import SplitText from "../animations/SplitText";
 import FadeContent from "../animations/FadeContent";
 // import { ImCross } from "react-icons/im";
@@ -10,7 +10,7 @@ import { useContext, useState } from "react";
 import AuthContext from "../contexts/AuthContext";
 
 const Signup = () => {
-  const { setUser, emailSignUp, handleUpdateProfile, handleSignOut } = useContext(AuthContext);
+  const { user,setUser, emailSignUp, handleUpdateProfile, handleSignOut } = useContext(AuthContext);
   const [passShow, setPassShow] = useState(false);
   const navigate = useNavigate();
 
@@ -52,7 +52,9 @@ const Signup = () => {
         toast.error(firebaseErrorHandler(error));
       });
   };
-
+if(user) {
+    return <Navigate to="/"/>
+  }
   return (
     <>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 flex-1">
