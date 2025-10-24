@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import SplitText from "../animations/SplitText";
 import FadeContent from "../animations/FadeContent";
 // import { ImCross } from "react-icons/im";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 import { toast } from "react-toastify";
 import PassValidator from "../utilities/PassValidator";
@@ -27,8 +27,17 @@ const handleSignup = (e) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((result) => {
       const user = result.user;
-      console.log(user);
       toast.success("Account Created");
+      updateProfile(user, {
+        displayName: name,
+        photoURL: imgUrl,
+      })
+        .then(() => {
+          toast.success("Info Updated");
+        })
+        .catch((error) => {
+          toast.error(firebaseErrorHandler(error));
+        });
     })
     .catch((error) => {
       toast.error(firebaseErrorHandler(error));
@@ -127,7 +136,7 @@ const Signup = () => {
                     <p className="mt-2 text-error font-medium flex items-center gap-1 animate-pulse"></p>
                   </div>
                   {/* Buttons */}
-                  <button className="btn btn-primary mt-2 font-semibold text-[16px] cursor-target">
+                  <button className="btn btn-primary font-semibold text-[16px] cursor-target">
                     Create Account
                   </button>
 
