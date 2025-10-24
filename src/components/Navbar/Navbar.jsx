@@ -98,9 +98,14 @@ const Navbar = () => {
               </ul>
             </div>
           ) : (
-            <Link to="/auth" className="btn bg-primary text-primary-content">
-              Sign in
-            </Link>
+            <div className="flex gap-2">
+              <Link to="/auth" className="btn bg-primary hover:bg-primary/80 text-primary-content">
+                Sign in
+              </Link>
+              <Link to="/auth/sign-up" className="hidden md:flex btn bg-white hover:bg-white/80 text-primary-content">
+                Register
+              </Link>
+            </div>
           )}
         </div>
       </div>

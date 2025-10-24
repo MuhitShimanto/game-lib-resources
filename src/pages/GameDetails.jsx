@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLoaderData, useParams } from "react-router";
 import GameNotFound from "./errorPages/GameNotFound";
+import { Helmet } from "react-helmet-async";
 
 const GameDetails = () => {
   const paramObj = useParams();
@@ -13,7 +14,9 @@ const GameDetails = () => {
   const { category, coverPhoto, description, developer, downloadLink, title } =
     game;
   return (
-    <div>
+    <><Helmet>
+        <title>GameHub | {title}</title>
+      </Helmet>
       <div id="cover" className="relative h-[50vh] overflow-hidden">
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center flex justify-center items-center font-bold text-[150px]">
@@ -33,7 +36,7 @@ const GameDetails = () => {
         {/* Download */}
         <Link to={downloadLink} className="mt-9 py-2 px-4 bg-primary text-primary-content inline-block rounded-lg font-medium text-lg hover:bg-primary/80">Download</Link>
       </div>
-    </div>
+    </>
   );
 };
 

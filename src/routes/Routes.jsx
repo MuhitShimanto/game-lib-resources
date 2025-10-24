@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import AllGames from "../pages/AllGames";
 import GameDetails from "../pages/GameDetails";
+import MyProfile from "../pages/MyProfile";
 import GameNotFound from "../pages/errorPages/GameNotFound";
 import ForgotPass from "../pages/ForgotPass";
 import PrivateRoute from "./PrivateRoute";
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
               const res = await fetch("/json/games.json");
               return res.json();
             },
+          },
+          {
+            path: "my-profile",
+            element: <MyProfile/>
           },
           {
             path: "*",

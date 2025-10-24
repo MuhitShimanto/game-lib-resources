@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -38,6 +39,10 @@ const AuthProvider = ({ children }) => {
       photoURL: imgUrl,
     });
   };
+  // Reset Password through Email
+  const handleResetPasswordEmail = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  }
   // Export Auth Info
   const AuthInfo = {
     user,
@@ -47,6 +52,7 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     handleSignOut,
     handleUpdateProfile,
+    handleResetPasswordEmail
   };
   // On Auth State Change - Listener
   useEffect(() => {

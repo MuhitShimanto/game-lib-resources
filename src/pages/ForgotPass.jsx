@@ -1,21 +1,39 @@
 import { Link, useNavigate } from "react-router";
 import SplitText from "../animations/SplitText";
 import FadeContent from "../animations/FadeContent";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import AuthContext from "../contexts/AuthContext";
+import { toast } from "react-toastify";
 
 const ForgotPass = () => {
-  const [errorMsg, setErrorMsg] = useState(null)
+  const { handleResetPasswordEmail } = useContext(AuthContext);
+  const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
+
   const handleForgotPass = (e) => {
     e.preventDefault();
-    console.log("working")
-    setTimeout(()=>{
-      navigate("/auth")
-    },2000)
-    setErrorMsg("Check your email to reset password")
-  }
+    const email = e.target.email.value;
+    console.log("forgot working");
+    handleResetPasswordEmail(email)
+      .then(() => {
+        setTimeout(()=>{
+          window.open("https://mail.google.com/mail/u/0/#spam", "_blank");
+        }, 1000);
+      })
+      .catch((error) => {
+        toast.error(error.errorMsg)
+      });
+    setTimeout(() => {
+      navigate("/auth");
+    }, 2000);
+    setErrorMsg("Check your email to reset password");
+  };
   return (
     <>
+      <Helmet>
+        <title>Reset Password</title>
+      </Helmet>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 flex-1">
         <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[50vw] ml-[calc((100%-100vw)/2)]">
           <img
@@ -59,7 +77,7 @@ const ForgotPass = () => {
               easing="ease-out"
               initialOpacity={0}
             >
-              <form onSubmit={(e)=>handleForgotPass(e)}>
+              <form onSubmit={(e) => handleForgotPass(e)}>
                 <fieldset className="flex flex-col gap-3">
                   {/* Email */}
                   <div className="flex flex-col gap-1">
@@ -72,13 +90,15 @@ const ForgotPass = () => {
                       required
                     />
                   </div>
-                  <p className="font-medium text-green-500 animate-pulse">{errorMsg}</p>
+                  <p className="font-medium text-green-500 animate-pulse">
+                    {errorMsg}
+                  </p>
                   {/* Buttons */}
 
                   <button className="btn btn-primary font-semibold text-[16px] cursor-target">
                     Continue
                   </button>
-                  
+
                   {/* Already Have Account */}
                   <div className="text-center">
                     <span className="text-accent-content">

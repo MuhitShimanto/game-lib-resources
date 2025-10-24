@@ -1,8 +1,11 @@
 import { Link } from "react-router";
 import LightRays from "../../animations/LightRays";
+import { Helmet } from "react-helmet-async";
 
 const PageNotFound = () => {
-  return (
+  return (<><Helmet>
+        <title>Not Found | GameHub</title>
+      </Helmet>
     <div className="h-screen overflow-hidden relative">
       {/* Overlay Starts */}
       <div className="absolute inset-0 z-99">
@@ -40,7 +43,7 @@ const PageNotFound = () => {
           Back to Home
         </Link>
       </div>
-    </div>
+    </div></>
   );
 };
 

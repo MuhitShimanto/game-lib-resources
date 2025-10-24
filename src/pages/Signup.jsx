@@ -8,6 +8,7 @@ import PassValidator from "../utilities/PassValidator";
 import firebaseErrorHandler from "../utilities/firebaseErrorHandler";
 import { useContext, useState } from "react";
 import AuthContext from "../contexts/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
   const { user,setUser, emailSignUp, handleUpdateProfile, handleSignOut } = useContext(AuthContext);
@@ -56,7 +57,9 @@ if(user) {
     return <Navigate to="/"/>
   }
   return (
-    <>
+    <><Helmet>
+        <title>GameHub | Sign Up</title>
+      </Helmet>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 flex-1">
         <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[50vw] ml-[calc((100%-100vw)/2)]">
           <img
