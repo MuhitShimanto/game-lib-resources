@@ -14,7 +14,12 @@ const Login = () => {
   const navigate = useNavigate();
   const curLocation = useLocation();
   const cameFrom = curLocation.state || "/";
+  const [emailInput, setEmailInput] = useState(null);
 
+  const handleEmailInput = (e) => {
+    setEmailInput(e.target.value)
+    localStorage.setItem("email",e.target.value)
+  }
   const handleSignin = (e) => {
     e.preventDefault();
 
@@ -44,11 +49,12 @@ const Login = () => {
         toast.error(firebaseErrorHandler(error));
       });
   };
-  if(user) {
-    return <Navigate to="/"/>
+  if (user) {
+    return <Navigate to="/" />;
   }
   return (
-    <><Helmet>
+    <>
+      <Helmet>
         <title>GameHub | Login</title>
       </Helmet>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 flex-1">
@@ -61,16 +67,6 @@ const Login = () => {
         <div className="hidden lg:block"></div>
         <div className="h-full flex justify-center items-center">
           <div className="min-w-[300px] lg:min-w-[400px] flex flex-col gap-2 p-10 rounded-lg shadow-xl">
-            {/* <h1 className="font-semibold text-primary text-5xl poppins">
-              Log in
-            </h1> */}
-            {/* <BlurText
-              text="Log in"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              className="font-semibold text-primary text-5xl poppins"
-            /> */}
             <SplitText
               text="Log in"
               className="font-semibold text-primary text-[42px] poppins"
@@ -100,6 +96,8 @@ const Login = () => {
                   <div className="flex flex-col gap-1">
                     <label className="text-neutral">Email</label>
                     <input
+                    value={emailInput}
+                    onChange={handleEmailInput}
                       name="email"
                       type="email"
                       className="input input-bordered w-full outline-none hover:border-primary focus:border-primary focus:shadow-sm focus:shadow-primary transition ease-in-out duration-200 cursor-target"

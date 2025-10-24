@@ -17,12 +17,12 @@ const ForgotPass = () => {
     console.log("forgot working");
     handleResetPasswordEmail(email)
       .then(() => {
-        setTimeout(()=>{
+        setTimeout(() => {
           window.open("https://mail.google.com/mail/u/0/#spam", "_blank");
         }, 1000);
       })
       .catch((error) => {
-        toast.error(error.errorMsg)
+        toast.error(error.errorMsg);
       });
     setTimeout(() => {
       navigate("/auth");
@@ -44,16 +44,6 @@ const ForgotPass = () => {
         <div className="hidden lg:block"></div>
         <div className="h-full flex justify-center items-center">
           <div className="min-w-[300px] lg:min-w-[400px] flex flex-col gap-2 p-10 rounded-lg shadow-xl">
-            {/* <h1 className="font-semibold text-primary text-5xl poppins">
-              Log in
-            </h1> */}
-            {/* <BlurText
-              text="Log in"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              className="font-semibold text-primary text-5xl poppins"
-            /> */}
             <SplitText
               text="Reset Password"
               className="font-semibold text-primary text-[42px] poppins"
@@ -67,10 +57,7 @@ const ForgotPass = () => {
               rootMargin="-100px"
               textAlign="left"
             />
-            {/* <p className="mb-6 text-[16px] text-neutral">
-              Welcome back! Please enter your details.
-            </p> */}
-            {/* Main Form */}
+
             <FadeContent
               blur={true}
               duration={300}
@@ -83,6 +70,7 @@ const ForgotPass = () => {
                   <div className="flex flex-col gap-1">
                     <label className="text-neutral">Email</label>
                     <input
+                    value={localStorage.getItem("email")}
                       name="email"
                       type="email"
                       className="input input-bordered w-full outline-none hover:border-primary focus:border-primary focus:shadow-sm focus:shadow-primary transition ease-in-out duration-200 cursor-target"
