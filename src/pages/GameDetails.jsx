@@ -1,18 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router";
 import GameNotFound from "./errorPages/GameNotFound";
 import { Helmet } from "react-helmet-async";
+import { ScaleLoader } from "react-spinners";
 
 const GameDetails = () => {
   const paramObj = useParams();
   const games = useLoaderData();
   const gameTitle = paramObj.gameTitle;
   const game = games.find((game) => game.title === gameTitle);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
+  if (loading) {
+    return (
+      <div className="min-h-[92vh] flex justify-center items-center">
+        <ScaleLoader color="#eea000" />
+      </div>
+    );
+  }
   if (!game) {
     return <GameNotFound />;
   }
   const { category, coverPhoto, description, developer, downloadLink, title } =
     game;
+
   return (
     <>
       <Helmet>
