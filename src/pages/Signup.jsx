@@ -1,51 +1,57 @@
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import SplitText from "../animations/SplitText";
 import FadeContent from "../animations/FadeContent";
 // import { ImCross } from "react-icons/im";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
 import { toast } from "react-toastify";
 import PassValidator from "../utilities/PassValidator";
 import firebaseErrorHandler from "../utilities/firebaseErrorHandler";
-import { useState } from "react";
-
-const handleSignup = (e) => {
-  e.preventDefault();
-  const name = e.target.name.value;
-  const imgUrl = e.target.img.value;
-  const email = e.target.email.value;
-  const password = e.target.password.value;
-  console.log("handle working", name, email, password);
-  // const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-  const validate = PassValidator(password);
-  if (validate.valid === false) {
-    toast.error(validate.msg);
-    return;
-  }
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((result) => {
-      const user = result.user;
-      toast.success("Account Created");
-      updateProfile(user, {
-        displayName: name,
-        photoURL: imgUrl,
-      })
-        .then(() => {
-          toast.success("Info Updated");
-        })
-        .catch((error) => {
-          toast.error(firebaseErrorHandler(error));
-        });
-    })
-    .catch((error) => {
-      toast.error(firebaseErrorHandler(error));
-    });
-};
+import { useContext, useState } from "react";
+import AuthContext from "../contexts/AuthContext";
 
 const Signup = () => {
+  const { setUser, emailSignUp, handleUpdateProfile, handleSignOut } = useContext(AuthContext);
   const [passShow, setPassShow] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const imgUrl = e.target.img.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const validate = PassValidator(password);
+    if (validate.valid === false) {
+      toast.error(validate.msg);
+      return;
+    }
+
+    emailSignUp(email, password)
+      .then((result) => {
+        const user = result.user;
+        toast.success("Account Created");
+        handleUpdateProfile(name, imgUrl)
+          .then(() => {
+            toast.success("Info Updated");
+            console.log(user);
+            // Signout here
+            handleSignOut()
+              .then(() => {
+                setUser(null);
+                navigate('/auth')
+              })
+              .catch((error) => {
+                toast.error(firebaseErrorHandler(error));
+              });
+          })
+          .catch((error) => {
+            toast.error(firebaseErrorHandler(error));
+          });
+      })
+      .catch((error) => {
+        toast.error(firebaseErrorHandler(error));
+      });
+  };
 
   return (
     <>

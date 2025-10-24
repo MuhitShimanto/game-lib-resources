@@ -1,18 +1,42 @@
 import { Link, NavLink } from "react-router";
 import Logo from "/logo2.png";
+import { useContext } from "react";
+import AuthContext from "../../contexts/AuthContext";
+import { toast } from "react-toastify";
+import firebaseErrorHandler from "../../utilities/firebaseErrorHandler";
 
 const navMenu = [
-  <li key={1}><NavLink to="/">Home</NavLink></li>,
-  <li key={2}><NavLink to="/all-games">Explore</NavLink></li>,
-  <li key={3}><NavLink to="/upcoming">Upcoming</NavLink></li>,
-  <li key={4}><NavLink to="/about-us">About Us</NavLink></li>,
+  <li key={1}>
+    <NavLink to="/">Home</NavLink>
+  </li>,
+  <li key={2}>
+    <NavLink to="/all-games">Explore</NavLink>
+  </li>,
+  <li key={3}>
+    <NavLink to="/upcoming">Upcoming</NavLink>
+  </li>,
+  <li key={4}>
+    <NavLink to="/about-us">About Us</NavLink>
+  </li>,
 ];
 
 const Navbar = () => {
+  const { user, setUser, handleSignOut } = useContext(AuthContext);
+  console.log(user?.photoURL);
+
+  const handleSignoutFunc = () => {
+    handleSignOut()
+      .then(() => {
+        setUser(null);
+      })
+      .catch((error) => {
+        toast.error(firebaseErrorHandler(error));
+      });
+  };
   return (
     <div className="bg-black ">
       <div className="max-w-[1600px] mx-auto navbar shadow-sm py-3">
-        <div className="navbar-start">
+        <div className="navbar-start py-3">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -47,9 +71,37 @@ const Navbar = () => {
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navMenu}</ul>
           </div>
-          <Link to="/auth" className="btn bg-primary text-primary-content">
-            Sign in
-          </Link>
+          {user ? (
+            <div className="dropdown dropdown-center">
+              <div tabIndex={0} role="button" className="m-1 h-[50px] w-[50px]">
+                <img
+                  src={
+                    user.photoURL ||
+                    "https://cdn-icons-png.freepik.com/256/13127/13127040.png?semt=ais_white_label"
+                  }
+                  className="h-full w-full object-cover rounded-full border-2 border-primary cursor-pointer"
+                />
+              </div>
+              <ul
+                tabIndex="-1"
+                className="dropdown-content menu bg-primary text-primary-content rounded-box z-1 min-w-32 p-2 shadow-sm"
+              >
+                <li className="py-2 px-4 mx-auto font-medium cursor-pointer hover:bg-white/30">
+                  My Profile
+                </li>
+                <li
+                  onClick={handleSignoutFunc}
+                  className="py-2 px-4 mx-auto font-medium cursor-pointer hover:bg-white/30"
+                >
+                  Sign Out
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/auth" className="btn bg-primary text-primary-content">
+              Sign in
+            </Link>
+          )}
         </div>
       </div>
     </div>
@@ -57,3 +109,16 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+// (
+//             <div className="h-[50px] w-[50px] overflow-hidden">
+//               <img
+//                 src={
+//                   user.photoURL ||
+//                   "https://cdn-icons-png.freepik.com/256/13127/13127040.png?semt=ais_white_label"
+//                 }
+//                 className="h-full w-full object-cover rounded-full border-2 border-primary cursor-pointer"
+//                 onClick={handleSignoutFunc}
+//               />
+//             </div>
+//           )

@@ -2,28 +2,23 @@ import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
 import SplitText from "../animations/SplitText";
 import FadeContent from "../animations/FadeContent";
-import { useState } from "react";
-import {
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
+import { useContext, useState } from "react";
+import { GoogleAuthProvider } from "firebase/auth";
 import { toast } from "react-toastify";
 import firebaseErrorHandler from "../utilities/firebaseErrorHandler";
-
-const googleProvider = new GoogleAuthProvider();
+import AuthContext from "../contexts/AuthContext";
 
 const Login = () => {
+  const { setUser, emailSignIn, googleSignIn } =
+    useContext(AuthContext);
   const [passShow, setPassShow] = useState(false);
-  const [user, setUser] = useState(null);
 
   const handleSignin = (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-    signInWithEmailAndPassword(auth, email, password)
+    emailSignIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -36,16 +31,18 @@ const Login = () => {
   };
   const handleGoogleSignin = (e) => {
     e.preventDefault();
-    signInWithPopup(auth, googleProvider)
+    googleSignIn()
       .then((result) => {
         const user = result.user;
         console.log(user);
         toast.success("Google Sign in Successful");
+        setUser(user);
       })
       .catch((error) => {
         toast.error(firebaseErrorHandler(error));
       });
   };
+  
 
   return (
     <>
@@ -124,9 +121,12 @@ const Login = () => {
                   </div>
                   {/* Forgot Password */}
                   <div className="text-left">
-                    <a className="link link-hover text-accent font-medium">
+                    <Link
+                      to="forgot-password"
+                      className="link link-hover text-accent font-medium"
+                    >
                       Forgot password?
-                    </a>
+                    </Link>
                   </div>
                   {/* Buttons */}
 

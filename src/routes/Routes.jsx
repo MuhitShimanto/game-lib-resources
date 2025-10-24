@@ -8,6 +8,7 @@ import Signup from "../pages/Signup";
 import AllGames from "../pages/AllGames";
 import GameDetails from "../pages/GameDetails";
 import GameNotFound from "../pages/errorPages/GameNotFound";
+import ForgotPass from "../pages/ForgotPass";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "sign-up",
         element: <Signup />,
+      },
+      {
+        path: "forgot-password",
+        element: <ForgotPass />,
       },
     ],
   },
