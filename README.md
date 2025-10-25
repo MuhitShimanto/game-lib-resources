@@ -10,7 +10,7 @@ The project features a **vibrant, urban-themed UI** designed for user engagement
 
 ## 🌐 Live URL
 
-👉 [https://ms-gamehub.netlify.app/](#)
+👉 https://ms-gamehub.netlify.app/
 
 ---
 
