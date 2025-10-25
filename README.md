@@ -1,16 +1,84 @@
-# React + Vite
+# 🎮 Gamehub - A Game Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📘 Purpose
 
-Currently, two official plugins are available:
+**Gamehub** is an engaging online library for discovering and supporting game developers.
+Users can browse indie games, view detailed information, check ratings, and find download links for their favorites.
+The project features a **vibrant, urban-themed UI** designed for user engagement.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🌐 Live URL
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+👉 [https://ms-gamehub.netlify.app/](#)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Key Features
+
+* **Game Discovery:** Browse a collection of indie games with detailed information pages.
+* **Homepage:** Includes a banner slider, popular games showcase, and newsletter subscription form.
+* **Popular Games Sorting:** Sort games by rating (High-to-Low or Low-to-High).
+* **User Authentication:** Secure login and registration using Email/Password and Google Sign-In via **Firebase Authentication**.
+* **Protected Routes:** Game detail pages are accessible only to logged-in users.
+* **User Profile Management:** Users can view and update their profile (display name, photo URL).
+* **Password Reset:** Functional “Forgot Password” feature.
+* **Responsive Design:** Fully responsive layout for mobile, tablet, and desktop devices.
+* **Dynamic Titles:** Browser tab titles update dynamically based on the current page.
+* **Custom Routing:** Includes standard pages such as:
+
+  * Home
+  * Login
+  * Register
+  * Profile
+  * 404 Not Found
+  * All Games (custom route)
+* **Animations:** Smooth animations implemented using **GSAP**, **Framer Motion**.
+
+---
+
+## 🧩 NPM Packages Used
+
+### ⚙️ Core Framework & Routing
+
+* **React** (`react`, `react-dom`) – For building the user interface
+* **React Router** (`react-router`) – For client-side routing
+* **Vite** (`vite`) – Frontend tooling for development and builds
+
+### 🎨 Styling & UI
+
+* **Tailwind CSS** (`tailwindcss`) – Utility-first CSS framework
+* **DaisyUI** (`daisyui`) – Tailwind component library
+* **React Icons** (`react-icons`) – Icon library
+* **Swiper** (`swiper`) – Banner slider/carousel
+
+### 🔐 Backend & Authentication
+
+* **Firebase** (`firebase`) – Authentication and backend services
+
+### ✨ Animations
+
+* **GSAP** (`gsap`, `@gsap/react`) – Animation library
+* **Framer Motion** (`motion`) – Animation library
+
+### 🧰 Utilities
+
+* **React Helmet Async** (`react-helmet-async`) – Manage document head & dynamic titles
+* **React Toastify** (`react-toastify`) – Toast notifications
+* **React Spinners** (`react-spinners`) – Loading indicators
+
+### 💻 Development Tools
+
+* **ESLint** (`eslint`, `@eslint/js`, etc.) – Code linting
+* **Vite React Plugin** (`@vitejs/plugin-react`) – React integration for Vite
+
+---
+
+
+
+## 🙌 Acknowledgements
+
+* Indie game developers for their amazing creations
+* Open-source contributors who make development tools possible
+
+
