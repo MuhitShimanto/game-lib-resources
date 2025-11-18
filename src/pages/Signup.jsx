@@ -2,7 +2,6 @@ import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link, Navigate, useNavigate } from "react-router";
 import SplitText from "../animations/SplitText";
 import FadeContent from "../animations/FadeContent";
-// import { ImCross } from "react-icons/im";
 import { toast } from "react-toastify";
 import PassValidator from "../utilities/PassValidator";
 import firebaseErrorHandler from "../utilities/firebaseErrorHandler";
@@ -11,7 +10,8 @@ import AuthContext from "../contexts/AuthContext";
 import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
-  const { user,setUser, emailSignUp, handleUpdateProfile, handleSignOut } = useContext(AuthContext);
+  const { user, setUser, emailSignUp, handleUpdateProfile, handleSignOut } =
+    useContext(AuthContext);
   const [passShow, setPassShow] = useState(false);
   const navigate = useNavigate();
 
@@ -39,7 +39,7 @@ const Signup = () => {
             handleSignOut()
               .then(() => {
                 setUser(null);
-                navigate('/auth')
+                navigate("/auth");
               })
               .catch((error) => {
                 toast.error(firebaseErrorHandler(error));
@@ -53,11 +53,12 @@ const Signup = () => {
         toast.error(firebaseErrorHandler(error));
       });
   };
-if(user) {
-    return <Navigate to="/"/>
+  if (user) {
+    return <Navigate to="/" />;
   }
   return (
-    <><Helmet>
+    <>
+      <Helmet>
         <title>GameHub | Sign Up</title>
       </Helmet>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 flex-1">

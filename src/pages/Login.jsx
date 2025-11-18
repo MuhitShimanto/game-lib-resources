@@ -17,9 +17,9 @@ const Login = () => {
   const [emailInput, setEmailInput] = useState(null);
 
   const handleEmailInput = (e) => {
-    setEmailInput(e.target.value)
-    localStorage.setItem("email",e.target.value)
-  }
+    setEmailInput(e.target.value);
+    localStorage.setItem("email", e.target.value);
+  };
   const handleSignin = (e) => {
     e.preventDefault();
 
@@ -30,9 +30,9 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         toast.success("Email Sign in Successful");
-        setTimeout(()=>{
+        setTimeout(() => {
           navigate(cameFrom);
-        },100)
+        }, 100);
       })
       .catch((error) => {
         toast.error(firebaseErrorHandler(error));
@@ -45,9 +45,9 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         toast.success("Google Sign in Successful");
-        setTimeout(()=>{
+        setTimeout(() => {
           navigate(cameFrom);
-        },100)
+        }, 100);
       })
       .catch((error) => {
         toast.error(firebaseErrorHandler(error));
@@ -100,8 +100,8 @@ const Login = () => {
                   <div className="flex flex-col gap-1">
                     <label className="text-neutral">Email</label>
                     <input
-                    value={emailInput}
-                    onChange={handleEmailInput}
+                      value={emailInput}
+                      onChange={handleEmailInput}
                       name="email"
                       type="email"
                       className="input input-bordered w-full outline-none hover:border-primary focus:border-primary focus:shadow-sm focus:shadow-primary transition ease-in-out duration-200 cursor-target"
